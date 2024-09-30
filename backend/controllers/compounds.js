@@ -49,8 +49,9 @@ const updateCompound = async (req, res) => {
     if (!compound) {
       return res.status(404).json({ msg: "compound not found" });
     }
+    console.log("updateResBody",updateResBody)
     const updatedCompund= await compounds.update({
-      updateResBody
+      ...updateResBody
     },{where : {id:id}});
 
     res.status(200).json({ msg: "Success", data: updatedCompund });
