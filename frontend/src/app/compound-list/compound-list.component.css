@@ -1,0 +1,39 @@
+.compound-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .compound-card {
+    width: 300px;
+    margin: 16px;
+    border-radius: 8px;
+  }
+
+  .example-card {
+    max-width: 400px;
+    margin: 16px;
+    gap: 16px;
+  }
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  
+  .pagination-controls {
+    margin-top: 20px;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    gap: 15px; /* Add space between buttons and text */
+  }
+  
+  .page-text {
+    margin: 0 10px; /* Add horizontal margin around the text */
+    font-size: 16px; /* Adjust font size if needed */
+    color: #000; /* Change text color if needed */
+  }
+  
+.teal-button:hover {
+    background-color: coral; /* Darker teal on hover */
+}

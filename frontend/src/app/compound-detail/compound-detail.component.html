@@ -1,0 +1,56 @@
+
+<div *ngIf="!compound; else compoundDetail">
+  <div class="compound-detail">
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <div class="skeleton skeleton-title"></div>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-description"></div>
+        <div class="skeleton skeleton-description"></div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #compoundDetail>
+  <div class="compound-detail">
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{compound?.CompoundName}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img mat-card-image src="{{compound?.strImageSource}}" alt="Photo" height="300" width="300">
+        <p>{{ compound?.CompounrDescription }}</p>
+      </mat-card-content>
+      <mat-card-footer class="example-card-footer">
+        <mat-chip-set aria-label="Chihuahua traits">
+          <mat-chip (click)="onEdit()" *ngIf="!isEditing">edit</mat-chip>
+        </mat-chip-set>
+      </mat-card-footer>
+    </mat-card>
+    <button mat-raised-button class="mat-primary" routerLink="/compounds">Back to Compounds</button>
+  </div>
+
+  <!-- Show the form only if editing -->
+  <form *ngIf="isEditing" [formGroup]="compoundForm" (ngSubmit)="onSubmit()" class="compound-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="CompoundName" placeholder="Name">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="CompounrDescription" placeholder="Description"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="strImageSource" placeholder="Image URL">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Update</button>
+    <button mat-raised-button color="warn" (click)="onCancel()" style="margin-left: 10px;">Cancel</button>
+  </form>
+</ng-template>

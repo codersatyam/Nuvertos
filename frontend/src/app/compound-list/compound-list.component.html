@@ -1,0 +1,25 @@
+
+<h1>Welcome to My Chemical Compounds App</h1>
+<div *ngIf="isLoading" class="compound-list">
+    <app-shimmer *ngFor="let item of shimmerItems" class="shimmer-card"></app-shimmer>
+  </div>
+
+<div class="compound-list">
+    <div class="compound-card" *ngFor="let compound of compounds| slice:(page-1)*pageSize:page*pageSize">
+        <mat-card class="example-card" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>{{compound?.CompoundName}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="compound?.strImageSource" alt="Photo" height="200" width="200">
+            <mat-card-actions>
+              <button mat-raised-button class="mat-primary teal-button" [routerLink]="['/compound', compound.id]">View Details</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+  
+<div class="pagination-controls">
+  <button mat-raised-button class="teal-button" (click)="page = page - 1" [disabled]="page === 1">Previous</button>
+  <span class="page-text">Page {{ page }}</span>
+  <button mat-raised-button class="mat-primary teal-button" (click)="page = page + 1" [disabled]="page * pageSize >= compounds.length">Next</button>
+</div>

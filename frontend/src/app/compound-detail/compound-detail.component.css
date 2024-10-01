@@ -1,0 +1,62 @@
+
+.teal-button:hover {
+    background-color: #006666; /* Darker teal on hover */
+}
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-card-footer {
+    padding: 16px;
+  }
+
+  /* Shimmer keyframe for the loading skeleton effect */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.compound-detail{
+  margin:20px;
+}
+.compound-form{
+  margin:20px
+}
+
+/* Common shimmer skeleton style */
+.skeleton {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #eaeaea 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  animation: shimmer 1.2s infinite linear;
+  border-radius: 4px;
+}
+
+/* Skeleton styles for the different parts of the card */
+.skeleton-card {
+  display: block;
+  margin: 16px 0;
+  width: 100%;
+  height: 250px;
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 60%;
+  margin: 16px 0;
+}
+
+.skeleton-description {
+  height: 15px;
+  width: 80%;
+  margin-bottom: 8px;
+}

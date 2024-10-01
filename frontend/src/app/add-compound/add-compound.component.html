@@ -1,0 +1,31 @@
+<h2>Add New Compound</h2>
+<form [formGroup]="compoundForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="CompoundName" required>
+    <mat-error *ngIf="compoundForm.get('title')?.invalid">Title is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="CompounrDescription" required></textarea>
+    <mat-error *ngIf="compoundForm.get('description')?.invalid">Description is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Image Source URL</mat-label>
+    <input matInput formControlName="strImageSource" required>
+    <mat-error *ngIf="compoundForm.get('imageUrl')?.invalid">Valid URL is required.</mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Image Attribution URL</mat-label>
+    <input matInput formControlName="strImageAttribution" required>
+    <mat-error *ngIf="compoundForm.get('imageAttr')?.invalid">Valid URL is required.</mat-error>
+  </mat-form-field>
+
+  <div>
+  <button mat-raised-button type="submit" [disabled]="compoundForm.invalid">Add Compound</button>
+</div>
+</form>
